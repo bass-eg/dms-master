@@ -1,0 +1,49 @@
+version: "3"
+services:
+  elasticsearch:
+    image: elasticsearchv7:latest
+    volumes:
+      - elasticsearch-data:/usr/share/elasticsearch/datav7
+      - esplugins:/usr/share/elasticsearch/plugins
+    ports:
+      - ${ES_PORT}:9200
+    environment:
+      - discovery.type=single-node
+      - cluster.name=elasticsearch
+      - bootstrap.memory_lock=true
+      - ES_JAVA_OPTS=-Xms2g -Xmx2g
+      - ELASTIC_PASSWORD=$ELASTIC_PASSWORD
+      - xpack.security.enabled=$ELASTIC_SECURITY
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    networks: [ 'stack' ]
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.17.16
+    volumes:
+      - kibana-data:/usr/share/kibana/datav7
+    ports:
+      - ${KIBANA_PORT}:5601
+    restart: always
+    environment:
+      ELASTICSEARCH_USERNAME: $ELASTIC_USERNAME
+      ELASTICSEARCH_PASSWORD: $ELASTIC_PASSWORD
+      SERVERNAME: kibana
+      ELASTICSEARCH_HOSTS: http://elasticsearch:$ES_PORT
+      ES_JAVA_OPTS: -Xmx512m -Xms512m
+    depends_on:
+      - elasticsearch
+    networks: [ 'stack' ]
+
+networks:
+  stack: { }
+
+volumes:
+  elasticsearch-data:
+    driver: local
+  kibana-data:
+    driver: local
+  esplugins:
+    driver: local

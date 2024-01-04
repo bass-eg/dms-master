@@ -1,0 +1,5 @@
+Docker file command: docker build -t elasticsearchv7 .
+
+FsCrawler: 1- bin\fscrawler --config_dir ./jobs documents --debug --trace logs
+           2- Select Y
+           3- Copy the _settings.yaml from the project and replace the one in jobs/documents that was created in previous step
