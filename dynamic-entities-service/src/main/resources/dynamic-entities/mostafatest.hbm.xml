@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<hibernate-mapping>
+    <class entity-name="mostafatest">
+        <id column="id" name="id" type="long">
+            <generator class="identity"/>
+        </id>
+        <property column="name" name="name" type="string"/>
+    </class>
+</hibernate-mapping>
