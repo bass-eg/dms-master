@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<hibernate-mapping>
+    <class entity-name="mostafatest4">
+        <id column="id" name="id" type="long">
+            <generator class="identity"/>
+        </id>
+        <property column="stringMostafa" name="stringMostafa" type="string"/>
+        <property column="longMostafa" name="longMostafa" type="long"/>
+        <property column="intMostafa" name="intMostafa" type="int"/>
+        <property column="booleanMostafa" name="booleanMostafa" type="boolean"/>
+    </class>
+</hibernate-mapping>
