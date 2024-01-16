@@ -1,5 +1,5 @@
 For Elasticsearch and Kibana:
-1- Run Dockerfile command at the path of the Dockerfile: docker build -t elasticsearchv7 .
+1- Run Dockerfile command at the path of the Dockerfile (First time running only): docker build -t elasticsearchv7 .
 2- Run command at the path of the docker-compose.yml and .env file: docker-compose up
 
 For FsCrawler:
