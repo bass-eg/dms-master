@@ -1,5 +1,8 @@
-Docker file command: docker build -t elasticsearchv7 .
+For Elasticsearch and Kibana:
+1- Run Dockerfile command at the path of the Dockerfile: docker build -t elasticsearchv7 .
+2- Run command at the path of the docker-compose.yml and .env file: docker-compose up
 
-FsCrawler: 1- bin\fscrawler --config_dir ./jobs documents --debug --trace logs
-           2- Select Y
-           3- Copy the _settings.yaml from the project and replace the one in jobs/documents that was created in previous step
+For FsCrawler:
+1- bin\fscrawler --config_dir ./jobs documents --debug --trace logs
+2- Select Y
+3- Copy the _settings.yaml from the project and replace the one in jobs/documents that was created in previous step
