@@ -25,9 +25,6 @@ import java.util.Map;
 @Service
 public class DynamicModelService {
     private final SessionFactory sessionFactory;
-    //    private final DynamicRepository dynamicRepository;
-    @Autowired
-    private JdbcTemplate jdbcTemplate;
 
     public DynamicModelService(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
