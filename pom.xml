@@ -20,6 +20,8 @@
         <module>discovery-server</module>
         <module>api-gateway</module>
         <module>common-domain</module>
+        <module>document-service</module>
+        <module>dynamic-entities-service</module>
     </modules>
 
     <properties>
