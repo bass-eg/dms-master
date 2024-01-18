@@ -1,10 +1,13 @@
 package com.bass.dms.server.elasticsearch.controller;
 
 import co.elastic.clients.elasticsearch._types.ElasticsearchException;
+import com.bass.dms.server.elasticsearch.models.Document;
 import com.bass.dms.server.elasticsearch.service.Elasticsearch;
+import com.bass.dms.server.elasticsearch.utils.CryptoException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -46,6 +49,13 @@ public class ElasticsearchController {
     @GetMapping("/{index}/{id}")
     public Object getDoc(@PathVariable String index, @PathVariable String id) throws IOException, ElasticsearchException {
         return elasticSearch.getDoc(index, id);
+    }
+
+    @GetMapping("/download-file")
+    public Document downloadFile(@RequestParam("file") String fileName) throws CryptoException, IOException {
+        fileName = fileName.replaceAll("/", "\\\\");
+        File file = new File(fileName);
+        return elasticSearch.downloadDocument(file);
     }
 
 }
