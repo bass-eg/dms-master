@@ -3,13 +3,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.bass.dms</groupId>
+        <groupId>com.bass.dms.server</groupId>
         <artifactId>dms-master</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <groupId>com.bass.dms</groupId>
     <artifactId>document-service</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
     <name>document-service</name>
     <description>document-service</description>
 
@@ -31,6 +29,10 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.bass.dms.server</groupId>
+            <artifactId>common-domain</artifactId>
         </dependency>
     </dependencies>
 

@@ -11,7 +11,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>com.bass.dms</groupId>
+    <groupId>com.bass.dms.server</groupId>
     <artifactId>dms-master</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
@@ -19,6 +19,7 @@
         <module>elasticsearch-service</module>
         <module>discovery-server</module>
         <module>api-gateway</module>
+        <module>common-domain</module>
     </modules>
 
     <properties>
@@ -39,6 +40,36 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>com.bass.dms.server</groupId>
+                <artifactId>api-gateway</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.bass.dms.server</groupId>
+                <artifactId>common-domain</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.bass.dms.server</groupId>
+                <artifactId>discovery-server</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.bass.dms.server</groupId>
+                <artifactId>document-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.bass.dms.server</groupId>
+                <artifactId>dynamic-entities-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.bass.dms.server</groupId>
+                <artifactId>elasticsearch-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
