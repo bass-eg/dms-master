@@ -6,7 +6,7 @@ package com.bass.dms.server.common.entity;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
@@ -44,7 +44,7 @@ public class Notification implements Serializable {
     @NotNull
     @Column(name = "event_date")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date eventDate;
+    private LocalDateTime eventDate;
     @JoinColumn(name = "content_object", referencedColumnName = "id")
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private ContentObject contentObject;

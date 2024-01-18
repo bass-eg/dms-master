@@ -8,7 +8,7 @@ import jakarta.persistence.*;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import jakarta.validation.constraints.NotNull;
@@ -70,7 +70,7 @@ public class ContentObject implements Serializable {
     @NotNull
     @Column(name = "create_date")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date createDate;
+    private LocalDateTime createDate;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 30)
@@ -80,7 +80,7 @@ public class ContentObject implements Serializable {
     @NotNull
     @Column(name = "modify_date")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date modifyDate;
+    private LocalDateTime modifyDate;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 30)
@@ -107,7 +107,7 @@ public class ContentObject implements Serializable {
     private String lockOwner;
     @Column(name = "lock_date")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date lockDate;
+    private LocalDateTime lockDate;
     @Column(name = "is_deleted")
     private Boolean isDeleted;
     @Size(max = 30)

@@ -6,7 +6,7 @@ package com.bass.dms.server.common.entity;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import jakarta.persistence.*;
@@ -56,7 +56,7 @@ public class Lifecycle implements Serializable {
     @NotNull
     @Column(name = "create_date")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date createDate;
+    private LocalDateTime createDate;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 30)
@@ -66,7 +66,7 @@ public class Lifecycle implements Serializable {
     @NotNull
     @Column(name = "modify_date")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date modifyDate;
+    private LocalDateTime modifyDate;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "lifecycle", fetch = FetchType.LAZY)
     private List<ContentObject> contentObjects;
     @JoinColumn(name = "object_type", referencedColumnName = "id")

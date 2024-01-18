@@ -11,7 +11,7 @@ import lombok.*;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 
 /**
@@ -48,7 +48,7 @@ public class AuditTrail implements Serializable {
     private String userName;
     @Column(name = "time_stamp")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date timeStamp;
+    private LocalDateTime timeStamp;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 200)

@@ -6,7 +6,7 @@ package com.bass.dms.server.common.entity;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import jakarta.persistence.*;
@@ -68,7 +68,7 @@ public class User implements Serializable {
     @NotNull
     @Column(name = "last_login_utc_time")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date lastLoginUtcTime;
+    private LocalDateTime lastLoginUtcTime;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 30)

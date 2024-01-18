@@ -6,7 +6,7 @@ package com.bass.dms.server.common.entity;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
@@ -42,7 +42,7 @@ public class Rendition implements Serializable {
     @NotNull
     @Column(name = "set_time")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date setTime;
+    private LocalDateTime setTime;
     @Basic(optional = false)
     @NotNull
     @Column(name = "content_size")
