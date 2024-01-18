@@ -1,17 +1,21 @@
 package com.bass.dms.server.elasticsearch.controller;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.bass.dms.server.elasticsearch.feign.DocumentServiceProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/test")
+@RequestMapping
 public class TestController {
 
     @Autowired
     private Environment environment;
+    private final DocumentServiceProxy documentServiceProxy;
+
+    public TestController(DocumentServiceProxy documentServiceProxy) {
+        this.documentServiceProxy = documentServiceProxy;
+    }
 
     @GetMapping("/port")
     public String retrieveExchangeValue() {
@@ -21,9 +25,9 @@ public class TestController {
 
     }
 
-    @GetMapping("/inventory")
+    @GetMapping("/document-port")
     public String test1() {
-        return "Hello World!";
+        return "The document service port is " + documentServiceProxy.retrievePort();
     }
 
     @GetMapping
