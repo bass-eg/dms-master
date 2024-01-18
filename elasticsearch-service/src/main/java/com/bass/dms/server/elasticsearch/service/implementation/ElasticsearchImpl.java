@@ -5,14 +5,21 @@ import co.elastic.clients.elasticsearch.ElasticsearchClient;
 import co.elastic.clients.elasticsearch._types.ElasticsearchException;
 import co.elastic.clients.elasticsearch.core.*;
 import co.elastic.clients.elasticsearch.core.search.Hit;
+import co.elastic.clients.elasticsearch.core.search.SourceConfig;
 import co.elastic.clients.elasticsearch.indices.CreateIndexResponse;
+import com.bass.dms.server.elasticsearch.models.Document;
 import com.bass.dms.server.elasticsearch.service.Elasticsearch;
+import com.bass.dms.server.elasticsearch.utils.CryptoException;
+import com.bass.dms.server.elasticsearch.utils.CryptoUtils;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -60,7 +67,7 @@ public class ElasticsearchImpl implements Elasticsearch {
 
         log.info("Executing search statement for keyword: {}", keyword);
         SearchResponse<Object> response = elasticsearchClient.search(s -> s
-                .query(q -> q.multiMatch(m -> m.query(keyword))), Object.class);
+                .query(q -> q.multiMatch(m -> m.query(keyword))).source(SourceConfig.of(k -> k.filter(m -> m.excludes("content","attachment")))), Object.class);
         result = response.hits().hits().stream().map(Hit::source).collect(Collectors.toList());
         log.info("Successfully searched for keyword: {}", keyword);
 
@@ -103,6 +110,19 @@ public class ElasticsearchImpl implements Elasticsearch {
     private HashMap<String, String> convertJsonStringToJson(String jsonString) throws JsonProcessingException {
         return objectMapper.readValue(jsonString, HashMap.class);
     }
+
+
+    @Override
+    public Document downloadDocument(File file) throws IOException, CryptoException {
+        Document doc = new Document();
+        doc.setName(file.getName());
+        InputStream stream = CryptoUtils.decrypt(file);
+        doc.setContent(Base64.getEncoder().encode(stream.readAllBytes()));
+        System.err.println(doc.getContent());
+        file.delete();
+        return doc;
+    }
+
 }
 
 
