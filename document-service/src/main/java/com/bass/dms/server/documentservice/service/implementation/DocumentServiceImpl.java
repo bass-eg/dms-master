@@ -1,7 +1,8 @@
-package com.bass.dms.server.documentservice.service;
+package com.bass.dms.server.documentservice.service.implementation;
 
 import com.bass.dms.server.common.entity.ContentObject;
 import com.bass.dms.server.documentservice.repository.ContentObjectRepo;
+import com.bass.dms.server.documentservice.service.DocumentsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
