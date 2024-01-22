@@ -37,7 +37,7 @@ public class EntryCondition implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "condition_order")
-    private int conditionOrder;
+    private Integer conditionOrder;
     @Size(max = 3)
     @Column(name = "logical_operator")
     private String logicalOperator;
@@ -53,7 +53,7 @@ public class EntryCondition implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "is_procedure")
-    private boolean isProcedure;
+    private Boolean isProcedure;
     @Size(max = 20)
     @Column(name = "procedure_name")
     private String procedureName;

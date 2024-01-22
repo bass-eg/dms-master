@@ -46,11 +46,11 @@ public class Rendition implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "content_size")
-    private int contentSize;
+    private Integer contentSize;
     @Basic(optional = false)
     @NotNull
     @Column(name = "is_primary")
-    private boolean isPrimary;
+    private Boolean isPrimary;
     @Column(name = "is_default")
     private Boolean isDefault;
     @JoinColumn(name = "content_object", referencedColumnName = "id")

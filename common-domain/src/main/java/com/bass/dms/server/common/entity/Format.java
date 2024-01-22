@@ -52,7 +52,7 @@ public class Format implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "can_index")
-    private boolean canIndex;
+    private Boolean canIndex;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "format", fetch = FetchType.LAZY)
     private List<Rendition> renditions;
 

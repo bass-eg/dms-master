@@ -38,7 +38,7 @@ public class LifecycleState implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "state_number")
-    private int stateNumber;
+    private Integer stateNumber;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 30)

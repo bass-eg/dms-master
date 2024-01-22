@@ -94,13 +94,13 @@ public class User {
     @JoinTable(name = "favorite",
             joinColumns = @JoinColumn(name = "user"),
             inverseJoinColumns = @JoinColumn(name = "content_object"))
-    private List<ContentObject> facouriteContentObjects ;
+    private List<ContentObject> favoriteContentObjects ;
 
     @ManyToMany
     @JoinTable(name = "group_member",
             joinColumns = @JoinColumn(name = "user"),
             inverseJoinColumns = @JoinColumn(name = "group"))
-    private List<UserGroup> memeberInGroup;
+    private List<UserGroup> memberInGroup;
 
     @OneToMany(mappedBy = "user")
     private List<Notification> notifications;

@@ -50,7 +50,7 @@ public class UserGroup implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "is_private")
-    private boolean isPrivate;
+    private Boolean isPrivate;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 6)

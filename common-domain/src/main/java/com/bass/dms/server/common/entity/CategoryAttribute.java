@@ -53,7 +53,7 @@ public class CategoryAttribute implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "position")
-    private int position;
+    private Integer position;
     @Basic(optional = false)
     @NotNull
     @Column(name = "length")
@@ -61,15 +61,15 @@ public class CategoryAttribute implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "is_mandatory")
-    private boolean isMandatory;
+    private Boolean isMandatory;
     @Basic(optional = false)
     @NotNull
     @Column(name = "is_displayed")
-    private boolean isDisplayed;
+    private Boolean isDisplayed;
     @Basic(optional = false)
     @NotNull
     @Column(name = "has_lov")
-    private boolean hasLov;
+    private Boolean hasLov;
     @Size(max = 1000)
     @Column(name = "lov_values")
     private String lovValues;

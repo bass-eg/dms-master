@@ -42,13 +42,13 @@ public class Permission implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "base_permissions")
-    private int basePermissions;
+    private Integer basePermissions;
     @Column(name = "extended_permissions")
     private Integer extendedPermissions;
     @Basic(optional = false)
     @NotNull
     @Column(name = "is_group")
-    private boolean isGroup;
+    private Boolean isGroup;
     @JoinColumn(name = "acl", referencedColumnName = "id")
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private PermissionSet acl;

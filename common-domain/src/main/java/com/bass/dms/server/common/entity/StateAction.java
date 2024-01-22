@@ -47,7 +47,7 @@ public class StateAction implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "execute_order")
-    private int executeOrder;
+    private Integer executeOrder;
     @Size(max = 50)
     @Column(name = "parameter")
     private String parameter;
@@ -57,7 +57,7 @@ public class StateAction implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "is_procedure")
-    private boolean isProcedure;
+    private Boolean isProcedure;
     @Size(max = 30)
     @Column(name = "procedure_name")
     private String procedureName;

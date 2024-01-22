@@ -53,11 +53,11 @@ public class PermissionSet implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "is_internal")
-    private boolean isInternal;
+    private Boolean isInternal;
     @Basic(optional = false)
     @NotNull
     @Column(name = "is_public")
-    private boolean isPublic;
+    private Boolean isPublic;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "acl", fetch = FetchType.LAZY)
     private List<ContentObject> contentObjects;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "acl", fetch = FetchType.LAZY)
