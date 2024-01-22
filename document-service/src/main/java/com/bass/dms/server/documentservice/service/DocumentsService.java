@@ -1,4 +1,4 @@
-package com.bass.dms.server.documentservice.services;
+package com.bass.dms.server.documentservice.service;
 
 import com.bass.dms.server.common.entity.ContentObject;
 

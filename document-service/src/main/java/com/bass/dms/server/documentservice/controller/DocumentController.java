@@ -1,7 +1,7 @@
 package com.bass.dms.server.documentservice.controller;
 
 import com.bass.dms.server.common.entity.ContentObject;
-import com.bass.dms.server.documentservice.services.DocumentsService;
+import com.bass.dms.server.documentservice.service.DocumentsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.http.ResponseEntity;
