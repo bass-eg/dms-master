@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface ContentObjectRepo extends JpaRepository<ContentObject,Integer> {
+public interface ContentObjectRepo extends JpaRepository<ContentObject,Long> {
     @Query("select c from ContentObject c where c.name=:name")
     ContentObject getContentObjectByName(String name);
 }
